@@ -1,0 +1,28 @@
+2024-12-30 16:32:22 ERROR    discord.client Ignoring exception in on_message
+Traceback (most recent call last):
+  File "/home/runner/test-Bot/.pythonlibs/lib/python3.11/site-packages/discord/client.py", line 449, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/runner/test-Bot/.pythonlibs/lib/python3.11/site-packages/discord/ext/commands/bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "/home/runner/test-Bot/.pythonlibs/lib/python3.11/site-packages/discord/ext/commands/bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/test-Bot/.pythonlibs/lib/python3.11/site-packages/discord/ext/commands/bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "/home/runner/test-Bot/.pythonlibs/lib/python3.11/site-packages/discord/ext/commands/core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "/home/runner/test-Bot/.pythonlibs/lib/python3.11/site-packages/discord/ext/commands/core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/test-Bot/.pythonlibs/lib/python3.11/site-packages/discord/ext/commands/core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/test-Bot/.pythonlibs/lib/python3.11/site-packages/discord/utils.py", line 704, in async_all
+    for elem in gen:
+  File "/home/runner/test-Bot/.pythonlibs/lib/python3.11/site-packages/discord/ext/commands/core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)
+                                         ^^^^^^^^^^^^^^
+  File "/home/runner/test-Bot/main.py", line 189, in <lambda>
+    @commands.check(lambda ctx: ctx.author.id == offers[ctx.author.name][0]['seller'] or ctx.author.has_role("Server Staff"))
+                                                                                         ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Member' object has no attribute 'has_role'
